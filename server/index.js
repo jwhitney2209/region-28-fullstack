@@ -1,4 +1,5 @@
-import 'dotenv/config.js';
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
@@ -21,6 +22,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   introspection: true,
+  context: ({ req }) => authMiddleware(req),
   cors: {
     origin: "*",
     credentials: true,

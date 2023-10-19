@@ -14,6 +14,11 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // eslint-disable-next-line
+    require("@tailwindcss/typography"),
+    // eslint-disable-next-line
+    require("@tailwindcss/forms"),
+  ],
 }
 
