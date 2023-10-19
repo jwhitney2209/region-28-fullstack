@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
 import AuthService from "../utils/auth";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
 
@@ -21,6 +22,7 @@ export default function Login() {
         variables: { ...formState },
       });
       AuthService.login(data.login.token);
+      navigate("/admin");
     } catch (e) {
       console.error(e);
     }

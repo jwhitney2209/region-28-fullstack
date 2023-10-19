@@ -16,7 +16,7 @@ import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const httpLink = createHttpLink({
-  uri: `${import.meta.env.VITE_APP_API_URL}/graphql`,
+  uri: `http://localhost:3001/graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -33,6 +33,7 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
+  credentials: "include",
 });
 
 function App() {

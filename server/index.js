@@ -8,7 +8,7 @@ import typeDefs from './graphql/typeDefs.js';
 import { Query, Mutation } from './graphql/resolvers/index.js';
 import db from './config/connection.js';
 import { authMiddleware } from './utils/auth.js';
-import { start } from 'repl';
+import cors from 'cors';
 
 const resolvers = {
   Query,
@@ -23,16 +23,14 @@ const server = new ApolloServer({
   resolvers,
   introspection: true,
   context: ({ req }) => authMiddleware(req),
-  cors: {
-    origin: "*",
-    credentials: true,
-  },
+  cors: false,  // <-- This should be set to false
 });
 
 const startApolloServer = async () => {
   await server.start();
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
+  app.use(cors());
   app.use("/graphql", expressMiddleware(server, {
     context: authMiddleware,
   }));
