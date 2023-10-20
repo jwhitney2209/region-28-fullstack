@@ -44,29 +44,23 @@ const selections = [
 export default function HighSchool() {
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="relative isolate overflow-hidden bg-blue-600 px-6 py-24 text-center sm:rounded-3xl sm:px-16">
-          <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Region 28 Vocal Division
-            <span className="font-thin"> // High School</span>
-          </h2>
-        </div>
-        <div className="py-2">
-          <div className="sm:rounded-3xl px-4 py-8 bg-blue-50">
+      <div className="mx-auto">
+        <div className="">
+          <div className="px-4 py-8 bg-zinc-200">
             <div className="text-center space-y-6">
-              <h1 className="text-xl text-blue-600 font-semibold">
+              <h1 className="text-xl text-zinc-900 font-semibold">
                 Attention Directors!
               </h1>
-              <p className="text-blue-600 text-sm">
+              <p className="text-zinc-900 text-sm">
                 Click the button below to download this year&apos;s Region 28
                 Honor Choir voice tracks.
               </p>
-              <button className="mt-2 rounded-md px-3 py-2 text-white bg-gray-600 hover:bg-gray-500">
+              <button className="mt-2 px-3 py-2 text-white bg-gray-600 hover:bg-gray-500">
                 <a href="https://drive.google.com/drive/folders/1yZYyilJtKZ3aSMuaJFf2g_DU2KDxpzsO?usp=sharing" target="_blank" rel="noreferrer">Download Learning Tracks</a>
               </button>
             </div>
           </div>
-          <div className="p-4 text-blue-600">
+          <div className="mx-auto max-w-7xl p-4 text-zinc-900">
             <h1 className="font-semibold text-2xl">TMEA All-State Selections by Round</h1>
             <p className="text-xl">District - September 23, 2023</p>
             <p>(Mixed) Tshela Moya/Ke nna yo Morena</p>
@@ -86,7 +80,7 @@ export default function HighSchool() {
             <p>(Tenor-Bass) Stopwatch and Ordnance Map</p>
             <p>(Treble) I Don&apos;t Feel No Ways Tired!</p>
           </div>
-          <div className="p-4 text-blue-600 space-y-6">
+          <div className="mx-auto max-w-7xl p-4 text-zinc-900 space-y-6">
             <div className="">
               <h1 className="font-semibold text-2xl">
                 TMEA Region 28 District & Region Mixed Choir
@@ -103,28 +97,28 @@ export default function HighSchool() {
 
             <h1 className="font-semibold text-xl">Honor Choir Selections</h1>
           </div>
-          <div className="space-y-6">
+          <div className="mx-auto max-w-7xl space-y-6">
             {selections.map((selection) => (
               <>
-                <div className="sm:rounded-3xl p-4 bg-gray-100">
+                <div className="p-4 bg-zinc-200">
                   <div key={selection.title} className="space-y-1.5">
-                    <p className="font-bold text-blue-600">
+                    <p className="font-bold text-zinc-900">
                       Title:{" "}
                       <span className="font-normal">{selection.title}</span>
                     </p>
-                    <p className="font-bold text-blue-600">
+                    <p className="font-bold text-zinc-900">
                       Composer/Arranger:{" "}
                       <span className="font-normal">{selection.composer}</span>
                     </p>
-                    <p className="font-bold text-blue-600">
+                    <p className="font-bold text-zinc-900">
                       Publisher:{" "}
                       <span className="font-normal">{selection.publisher}</span>
                     </p>
-                    <p className="font-bold text-blue-600">
+                    <p className="font-bold text-zinc-900">
                       Voicing:{" "}
                       <span className="font-normal">{selection.voicing}</span>
                     </p>
-                    <p className="font-bold text-blue-600">
+                    <p className="font-bold text-zinc-900">
                       Links to purchase:
                     </p>
                     <Link
@@ -132,7 +126,7 @@ export default function HighSchool() {
                       type="button"
                       target="_blank"
                       rel="noreferrer"
-                      className="font-normal rounded-md px-3 py-2 bg-gray-600 hover:bg-gray-500 text-white"
+                      className="font-normal px-3 py-2 bg-gray-600 hover:bg-gray-500 text-white"
                     >
                       JW Pepper
                     </Link>
@@ -141,7 +135,7 @@ export default function HighSchool() {
                       type="button"
                       target="_blank"
                       rel="noreferrer"
-                      className="ml-2 font-normal rounded-md px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white"
+                      className="ml-2 font-normal px-3 py-2 bg-zinc-900 hover:bg-zinc-700 text-white"
                     >
                       Penders
                     </Link>

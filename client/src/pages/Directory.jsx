@@ -1,19 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 const directors = [
-  {
-    name: "Jason Whitney",
-    title: "Head Choir Director",
-    email: "jwhitney@bisd.us",
-    phone: "956-698-2335",
-    school: "Lopez Early College High School",
-  },
-  {
-    name: "Meagan Contreras",
-    title: "Assistant Choir Director",
-    email: "mlcontreras@bisd.us",
-    phone: "956-698-2443",
-    school: "Lopez Early College High School",
-  },
+
 ];
 
 export default function Directory() {
@@ -21,12 +8,6 @@ export default function Directory() {
     <>
       <div className="bg-white">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="relative isolate overflow-hidden bg-blue-600 px-6 py-24 text-center sm:rounded-3xl sm:px-16">
-            <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Region 28 Vocal Division
-              <span className="font-thin"> // Directory</span>
-            </h2>
-          </div>
           <div className="mt-8 px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:items-center">
               <div className="sm:flex-auto">

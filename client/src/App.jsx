@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto">
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
