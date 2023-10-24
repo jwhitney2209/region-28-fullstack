@@ -14,6 +14,7 @@ import Calendar from "./pages/Calendar";
 import Admin from "./pages/Admin";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AddMemberForm from "./components/AddMemberForm";
 
 const httpLink = createHttpLink({
   uri: `http://localhost:3001/graphql`,
@@ -51,6 +52,7 @@ function App() {
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/admin" element={<ProtectedRoute />}>
               <Route index element={<Admin />} />
+              <Route path="add-member" element={<AddMemberForm/>} />
             </Route>
           </Routes>
           <Footer />

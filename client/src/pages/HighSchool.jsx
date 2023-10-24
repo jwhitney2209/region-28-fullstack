@@ -1,7 +1,10 @@
+import { Fragment } from "react";
+
 /* eslint-disable react/jsx-no-comment-textnodes */
 import { Link } from "react-router-dom";
 const selections = [
   {
+    id: 1,
     title: "Modimo",
     composer: "Michael Barrett",
     voicing: "SATB",
@@ -12,6 +15,7 @@ const selections = [
       "Ignore soli in Tenor and Bass parts (m8, m24, etc) m2- take low bass, same throughout. Ending- All Parts record low note.",
   },
   {
+    id: 2,
     title: "Music, Lead The Way!",
     composer: "Laura Farnell",
     voicing: "SATB",
@@ -21,6 +25,7 @@ const selections = [
     errata: "Soprano sing S2 at m57 and m61, S1 will be solo or small group.",
   },
   {
+    id: 3,
     title: "Carry the Light",
     composer: "Andy Beck",
     voicing: "SAB",
@@ -30,6 +35,7 @@ const selections = [
     errata: "Sing large notes only.",
   },
   {
+    id: 4,
     title: "Dixit Dominus",
     composer: "Patrick M. Liebergen",
     voicing: "SAB",
@@ -99,9 +105,9 @@ export default function HighSchool() {
           </div>
           <div className="mx-auto max-w-7xl space-y-6">
             {selections.map((selection) => (
-              <>
+              <Fragment key={selection.id}>
                 <div className="p-4 bg-zinc-200">
-                  <div key={selection.title} className="space-y-1.5">
+                  <div  className="space-y-1.5">
                     <p className="font-bold text-zinc-900">
                       Title:{" "}
                       <span className="font-normal">{selection.title}</span>
@@ -144,7 +150,7 @@ export default function HighSchool() {
                     </p>
                   </div>
                 </div>
-              </>
+              </Fragment>
             ))}
           </div>
         </div>

@@ -29,7 +29,8 @@ export default function Login() {
   };
   return (
     <>
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="mt-8 px-4 sm:px-6 lg:px-8">
         <form className="space-y-6" onSubmit={handleFormSubmit}>
           <div className="">
             <label
@@ -81,12 +82,13 @@ export default function Login() {
             </button>
             <Link
               to="/"
-              className="mt-2 flex w-full justify-center rounded-md bg-amber-600 hover:bg-amber-500 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-50 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+              className="mt-2 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-50 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Back to Home
             </Link>
           </div>
         </form>
+        </div>
         {error && (
           <div className="my-4 bg-red-200 rounded-md border-0 py-3.5">
             <p className="text-red-500 font-semibold text-center">
