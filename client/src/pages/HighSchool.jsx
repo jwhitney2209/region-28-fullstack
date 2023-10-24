@@ -58,7 +58,7 @@ export default function HighSchool() {
                 Attention Directors!
               </h1>
               <p className="text-zinc-900 text-sm">
-                Click the button below to download this year&apos;s Region 28
+                Click the button below to download this year&apos;s LRGV
                 Honor Choir voice tracks.
               </p>
               <button className="mt-2 px-3 py-2 text-white bg-gray-600 hover:bg-gray-500">
@@ -96,7 +96,7 @@ export default function HighSchool() {
             </div>
             <div>
               {" "}
-              <h1 className="font-semibold text-2xl ">Region 28 Honor Choir</h1>
+              <h1 className="font-semibold text-2xl ">Lower Rio Grande Valley Honor Choir</h1>
               <p>Clinician: Raegan Grantham, Jordan High School</p>
               <p>Accompanist: ---</p>
             </div>
