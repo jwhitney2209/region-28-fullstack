@@ -17,7 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AddMemberForm from "./components/AddMemberForm";
 
 const httpLink = createHttpLink({
-  uri: `http://localhost:3001/graphql`,
+  uri: `${import.meta.env.VITE_APP_API_URL}/graphql` || `http://localhost:3001/graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {
