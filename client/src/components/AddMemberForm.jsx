@@ -2,7 +2,23 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_MEMBER } from "../utils/mutations";
 import GoBackButton from "./GoBackButton";
+import SuccessModal from "./SuccessModal";
+
+const initialState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  schoolName: '',
+  schoolPhone: '',
+  street1: '',
+  street2: '',
+  city: '',
+  state: 'TX',
+  zip: '',
+};
+
 export default function AddMemberForm() {
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
@@ -16,7 +32,7 @@ export default function AddMemberForm() {
     zip: "",
   });
 
-  const [addMember, { loading, error, data }] = useMutation(ADD_MEMBER);
+  const [addMember, { loading, error }] = useMutation(ADD_MEMBER);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +65,10 @@ export default function AddMemberForm() {
         },
       });
 
-      console.log("Member added:", response.data.addMember);
+      if (response.data) {
+        setShowSuccess(true); // Show the success modal if member is added successfully
+        setFormState(initialState); // Reset the form state
+      }
     } catch {
       console.error("Error addming member: ", error);
     }
@@ -57,7 +76,7 @@ export default function AddMemberForm() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message} </p>;
-  if (data) return <p>Member added successfully!</p>;
+
 
   return (
     <>
@@ -278,7 +297,8 @@ export default function AddMemberForm() {
           >
             Submit
           </button>
-        </form>{" "}
+        </form>
+        <SuccessModal isVisible={showSuccess} onHide={() => setShowSuccess(false)}/>
       </>
     </>
   );
