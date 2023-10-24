@@ -37,6 +37,9 @@ const schoolSchema = new mongoose.Schema({
     required: [true, "School phone number is required"],
     minlength: [10, "School phone number must be at least 10 characters long"],
   },
+  extension: {
+    type: String,
+  },
   address: addressSchema,
 });
 
@@ -51,6 +54,11 @@ const memberSchema = new mongoose.Schema({
     required: [true, "Last name is required"],
     minlength: [2, "Last name must be at least 2 characters long"],
   },
+  position: {
+    type: String,
+    required: [true, "Position is required"],
+    enum: ["Head Director", "Assistant Director", "Accompanist", "Assistant Director/Accompanist"]
+  },
   email: {
     type: String,
     required: [true, "Email is required"],
@@ -62,6 +70,16 @@ const memberSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+});
+
+schoolSchema.pre('validate', function (next) {
+  if (this.phone && typeof this.phone === 'string') {
+      this.phone = this.phone.replace(/\D/g, '');  // Remove all non-digit characters
+      if (this.phone.length === 10) {
+          this.phone = `${this.phone.slice(0, 3)}-${this.phone.slice(3, 6)}-${this.phone.slice(6, 10)}`;
+      }
+  }
+  next();
 });
 
 const Member = mongoose.model("Member", memberSchema);

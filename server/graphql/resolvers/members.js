@@ -5,7 +5,7 @@ const resolvers = {
     members: async () => {
       try {
         // Fetch all members from the database
-        const allMembers = await Member.find().sort({ "school.city": 1});
+        const allMembers = await Member.find().sort({ "school.name": 1});
 
         // Return the list of members
         return allMembers;
@@ -33,7 +33,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    addMember: async (_, { firstName, lastName, email, school: schoolInput }, context) => {
+    addMember: async (_, { firstName, lastName, position, email, school: schoolInput }, context) => {
       if(!context.user) {
         throw new Error("You need to log in to do this.");
       }
@@ -41,10 +41,12 @@ const resolvers = {
         const newMember = await Member({
           firstName,
           lastName,
+          position,
           email,
           school: {
             name: schoolInput.name,
             phone: schoolInput.phone,
+            extension: schoolInput.extension,
             address: {
               street1: schoolInput.address.street1,
               street2: schoolInput.address.street2,
@@ -63,7 +65,7 @@ const resolvers = {
         throw new Error(`Error adding member: ${error.message}`)
       }
     },
-    updateMember: async (_, { _id, firstName, lastName, email, school: schoolInput }, context) => {
+    updateMember: async (_, { _id, firstName, lastName, position, email, school: schoolInput }, context) => {
       if(!context.user) {
         throw new Error("You need to log in to do this.");
       }
@@ -72,11 +74,13 @@ const resolvers = {
         let updateObj = {};
         if (firstName) updateObj.firstName = firstName;
         if (lastName) updateObj.lastName = lastName;
+        if (position) updateObj.position = position;
         if (email) updateObj.email = email;
         if (schoolInput) {
           updateObj.school = {
             name: schoolInput.name,
             phone: schoolInput.phone,
+            extension: schoolInput.extension,
             address: {
               street1: schoolInput.address.street1,
               street2: schoolInput.address.street2,

@@ -9,12 +9,6 @@ export default function DirectoryTable() {
 
   const directors = data.members || [];
 
-  directors.sort((a, b) => {
-    if (a.school.city && b.school.city) {
-      return a.school.city.localeCompare(b.school.city)
-    }
-    return 0;
-  })
   console.log(directors)
 
   return (
@@ -31,19 +25,13 @@ export default function DirectoryTable() {
             scope="col"
             className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
           >
-            Position
-          </th>
-          <th
-            scope="col"
-            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
-          >
-            Email
-          </th>
-          <th
-            scope="col"
-            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
-          >
             School
+          </th>
+          <th
+            scope="col"
+            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+          >
+            Position
           </th>
           <th
             scope="col"
@@ -51,44 +39,50 @@ export default function DirectoryTable() {
           >
             Phone
           </th>
+          <th
+            scope="col"
+            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+          >
+            Email
+          </th>
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-200 bg-white">
-        {/* {directors.map((person) => (
-          <tr key={person.id} className="even:bg-gray-100">
+        {directors.map((person) => (
+          <tr key={person._id} className="even:bg-gray-100">
             <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
               {person.firstName} {person.lastName}
               <dl className="font-normal lg:hidden">
-                <dt className="sr-only">Title</dt>
-                <dd className="mt-1 truncate text-gray-700">{person.title}</dd>
+                <dt className="sr-only">School Name</dt>
+                <dd className="mt-1 truncate text-gray-700">{person.school.name}</dd>
+                <dt className="sr-only sm:hidden">Position</dt>
+                <dd className="mt-1 truncate text-gray-500 sm:hidden">
+                  {person.position}
+                </dd>
                 <dt className="sr-only sm:hidden">Email</dt>
                 <dd className="mt-1 truncate text-gray-500 sm:hidden">
                   {person.email}
                 </dd>
-                <dt className="sr-only sm:hidden">School</dt>
+                <dt className="sr-only sm:hidden">School Phone</dt>
                 <dd className="mt-1 truncate text-gray-500 sm:hidden">
-                  {person.school}
-                </dd>
-                <dt className="sr-only sm:hidden">Phone</dt>
-                <dd className="mt-1 truncate text-gray-500 sm:hidden">
-                  {person.phone}
+                  {person.school.phone}
                 </dd>
               </dl>
             </td>
             <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-              {person.title}
+              {person.school.name}
+            </td>
+            <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+              {person.position}
             </td>
             <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
-              {person.email}
+              {person.school.phone}
             </td>
-            <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
-              {person.school}
-            </td>
-            <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
-              {person.phone}
+            <td className="hidden px-3 hover:text-indigo-600 py-4 text-sm text-gray-500 sm:table-cell">
+              <a href={`mailto:${person.email}`}>{person.email}</a>
             </td>
           </tr>
-        ))} */}
+        ))}
       </tbody>
     </table>
   );

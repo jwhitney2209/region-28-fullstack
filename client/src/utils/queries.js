@@ -6,10 +6,12 @@ query getMembers {
     _id
     firstName
     lastName
+    position
     email
     school {
       name
       phone
+      extension
       address {
         street1
         street2

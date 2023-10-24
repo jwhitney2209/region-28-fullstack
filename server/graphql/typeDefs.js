@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
+    position: String
     email: String
     school: School
     createdAt: String
@@ -27,6 +28,7 @@ const typeDefs = gql`
   type School {
     name: String
     phone: String
+    extension: String
     address: Address
   }
 
@@ -41,6 +43,7 @@ const typeDefs = gql`
   input SchoolInput {
     name: String
     phone: String
+    extension: String
     address: AddressInput
   }
 
@@ -59,6 +62,7 @@ const typeDefs = gql`
     addMember(
       firstName: String!
       lastName: String!
+      position: String!
       email: String!
       school: SchoolInput
     ): Member
@@ -66,6 +70,7 @@ const typeDefs = gql`
       _id: ID!
       firstName: String
       lastName: String
+      position: String
       email: String
       school: SchoolInput
     ): Member
