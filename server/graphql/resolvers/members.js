@@ -5,7 +5,7 @@ const resolvers = {
     members: async () => {
       try {
         // Fetch all members from the database
-        const allMembers = await Member.find();
+        const allMembers = await Member.find().sort({ "school.city": 1});
 
         // Return the list of members
         return allMembers;
