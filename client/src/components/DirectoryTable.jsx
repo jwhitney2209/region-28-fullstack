@@ -68,7 +68,7 @@ export default function DirectoryTable() {
                 <dt className="sr-only sm:hidden">School Phone</dt>
                 <dd className="mt-1 truncate text-gray-500 sm:hidden">
                   {person.school.extension
-                    ? `${person.school.phone} ext.${person.school.extension}`
+                    ? `${person.school.phone} ext. ${person.school.extension}`
                     : `${person.school.phone}`}
                 </dd>
               </dl>
@@ -81,7 +81,7 @@ export default function DirectoryTable() {
             </td>
             <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
               {person.school.extension
-                ? `${person.school.phone} ext.${person.school.extension}`
+                ? `${person.school.phone} ext. ${person.school.extension}`
                 : `${person.school.phone}`}
             </td>
             <td className="hidden px-3 hover:text-indigo-600 py-4 text-sm text-gray-500 sm:table-cell">
