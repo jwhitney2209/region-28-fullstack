@@ -9,7 +9,7 @@ export default function DirectoryTable() {
 
   const directors = data.members || [];
 
-  console.log(directors)
+  console.log(directors);
 
   return (
     <table className="min-w-full divide-y divide-gray-300">
@@ -54,7 +54,9 @@ export default function DirectoryTable() {
               {person.firstName} {person.lastName}
               <dl className="font-normal lg:hidden">
                 <dt className="sr-only">School Name</dt>
-                <dd className="mt-1 truncate text-gray-700">{person.school.name}</dd>
+                <dd className="mt-1 truncate text-gray-700">
+                  {person.school.name}
+                </dd>
                 <dt className="sr-only sm:hidden">Position</dt>
                 <dd className="mt-1 truncate text-gray-500 sm:hidden">
                   {person.position}
@@ -65,7 +67,9 @@ export default function DirectoryTable() {
                 </dd>
                 <dt className="sr-only sm:hidden">School Phone</dt>
                 <dd className="mt-1 truncate text-gray-500 sm:hidden">
-                  {person.school.phone}
+                  {person.school.extension
+                    ? `${person.school.phone} ext.${person.school.extension}`
+                    : `${person.school.phone}`}
                 </dd>
               </dl>
             </td>
@@ -76,7 +80,9 @@ export default function DirectoryTable() {
               {person.position}
             </td>
             <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
-              {person.school.phone}
+              {person.school.extension
+                ? `${person.school.phone} ext.${person.school.extension}`
+                : `${person.school.phone}`}
             </td>
             <td className="hidden px-3 hover:text-indigo-600 py-4 text-sm text-gray-500 sm:table-cell">
               <a href={`mailto:${person.email}`}>{person.email}</a>
