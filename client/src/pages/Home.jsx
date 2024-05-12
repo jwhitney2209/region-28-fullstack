@@ -5,6 +5,9 @@ export default function Home() {
       <div>
         <Hero />
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-12">
+          <div className="mb-4 text-center">
+            <a href="https://drive.google.com/file/d/1npr-2ZBG712q6LNMWzEQ3rS41siq8Txh/view?usp=drivesdk" className="px-3 py-2 bg-indigo-600 text-white">Region Handbook</a>
+            </div>
           <h1 className="font-semibold text-xl text-center">
             TMEA Region 28 Officers
           </h1>
