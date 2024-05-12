@@ -4,14 +4,13 @@ export const GET_MEMBERS = gql`
 query getMembers {
   members {
     _id
+    createdAt
     firstName
     lastName
-    position
     email
+    position
     school {
       name
-      phone
-      extension
       address {
         street1
         street2

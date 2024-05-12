@@ -2,7 +2,14 @@ import { useQuery } from "@apollo/client";
 import { GET_MEMBERS } from "../utils/queries";
 
 export default function DirectoryTable() {
-  const { loading, data } = useQuery(GET_MEMBERS);
+  const { loading, errors, data } = useQuery(GET_MEMBERS);
+
+  console.log(data)
+  if (errors) {
+    console.error("Errors fetching members:", errors);
+    return <div>Error loading members.</div>;
+  }
+
   if (loading) {
     return <div>Loading...</div>;
   }
